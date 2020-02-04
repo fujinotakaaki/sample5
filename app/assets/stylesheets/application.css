@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.about-headline{
+  font-size: 28px;
+}
+.about-name{
+  color: forestgreen;
+}
+.about-p1{
+  text-align: center;
+}
