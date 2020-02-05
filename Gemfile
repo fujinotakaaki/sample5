@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # ↓↓↓Ruby on Rails チュートリアルで追加↓↓↓
 gem 'jquery-rails', '4.3.1'
+gem 'bootstrap-sass'
 # ↑↑↑Ruby on Rails チュートリアルで追加↑↑↑
 
 # Use CoffeeScript for .coffee assets and views
