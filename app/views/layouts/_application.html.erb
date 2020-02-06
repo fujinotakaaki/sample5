@@ -1,10 +1,15 @@
+<!--railsチュートリアル5.1章最後の演習で作ったバックアップ-->
+
 <!DOCTYPE html>
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <!--タイトルとかスタイルシートとか-->
-  <%= render 'layouts/head' %>
-  <!--非対応ブラウザ対策（適当）-->
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   <%= render 'layouts/shim' %>
 </head>
 
