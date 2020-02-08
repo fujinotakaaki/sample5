@@ -2,7 +2,11 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new( name: 'Example_user', email: 'example_user@example.com' )
+    # ターミナル上で挙動を確認したい時 => $ rails console --sandbox
+    @user = User.new( name: 'Example_user', email: 'example_user@example.com', password: "gNbpjw2cF6", password_confirmation: "gNbpjw2cF6" )
+    # app/models/user.rbでhas_secure_passwordメソッドを追記した場合、
+    # セットアップでパスワードの入力が必要
+    # => パスワードについてはrailsチュートリアル6章を参照
   end
 
   test "should be valid" do
@@ -99,5 +103,19 @@ class UserTest < ActiveSupport::TestCase
     # @sample.reload.name => # @sample.name => 'Yajue'
     # reference: https://teratail.com/questions/2230
     # -----------------------------------------------------------------------------------------------------
+  end
+
+  test "password should be present (nonblank)" do
+    # ノコック「パスワードは空白じゃダメなノ」
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
+
+  test "password should have a minimum length" do
+    # ノコック「パスワードは6文字未満はダメなノ」
+    # 多重代入やってます！！
+    random_five_characters = [(?a..?z), (?A..?Z), (0..9)].map(&:to_a).flatten.shuffle[3...8].join
+    @user.password = @user.password_confirmation = random_five_characters
+    assert_not @user.valid?
   end
 end # class UserTest < ActiveSupport::TestCase
