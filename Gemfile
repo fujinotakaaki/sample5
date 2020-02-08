@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # ↓↓↓Ruby on Rails チュートリアルで追加↓↓↓
 gem 'jquery-rails', '4.3.1'
 gem 'bootstrap-sass'
+gem 'bcrypt',         '3.1.12' #6.3で追加（最先端のハッシュ関数、パスワードのハッシュ化で使う？）
 # ↑↑↑Ruby on Rails チュートリアルで追加↑↑↑
 
 # Use CoffeeScript for .coffee assets and views
