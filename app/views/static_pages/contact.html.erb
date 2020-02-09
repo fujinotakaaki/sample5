@@ -6,7 +6,10 @@
 </p>
 <p class="about-p1">
   <span class="about-headline">ランダムな文字列を生成しています。（20文字）</span><br>
-  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓<br> 
-  <span class="about-name"><%= @contact %></span><br>
-  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑<br>
+  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓<br>
+  <span class="about-name">
+    <%= random_characters(20) %>
+  </span><br>
+  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑<br>
+  <%= link_to '更新', contact_path, class: "btn btn-default" %>
 </p>
