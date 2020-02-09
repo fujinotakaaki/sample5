@@ -1,0 +1,17 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@user.errors.count, "error") %>.
+      <!--pluralize(number, word) =>英語専用のテキストヘルパー-->
+      <!--英単語を単数形・複数形を使い分けてアウトプッチしてくれる-->
+      <!--helper.pluralize(1, "error")=> "1 error"-->
+      <!--helper.pluralize(5, "error")=> "5 errors"-->
+      <!--Rails専用メソッドかよ！！！（あたりまえだよなぁ）-->
+    </div>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

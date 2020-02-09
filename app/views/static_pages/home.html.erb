@@ -10,6 +10,7 @@
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
-
-<%#= link_to image_tag("kitten.jpg", alt: "  ネコさん"), %q(#) %>
-<%# <%= link_to image_tag("satisfaction.jpg", alt: "満足さん（ver.ブロリー）"), 'http://yhvhiro.web.fc2.com/yhvh_gurongi.html' %> %>
+<%= link_to "Jump First User\'s Show Page.", user_path(1) %><br>
+<%= link_to "JumpUser\'s#new Page.", new_user_path %><br>
+<% link_to image_tag("kitten.jpg", alt: "  ネコさん"), %q(#) %><br>
+<%= link_to image_tag("satisfaction.jpg", alt: "満足さん（ver.ブロリー）"), 'http://yhvhiro.web.fc2.com/yhvh_gurongi.html' %>

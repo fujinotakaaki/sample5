@@ -12,7 +12,9 @@
 
 <p class="about-p1">
   <span class="about-headline">ランダムな文字列を生成しています。（10文字）</span><br>
-  ↓↓↓↓↓↓↓↓↓↓<br>
-  <span class="about-name"><%= @about %></span><br>
-  ↑↑↑↑↑↑↑↑↑↑<br>
+  <%= link_to '更新', about_path, class: "btn btn-default" %><br>
+  ↓↓↓↓↓↓↓↓↓↓↓↓<br>
+  <span class="about-name"><%= random_characters(10) %></span><br>
+  ↑↑↑↑↑↑↑↑↑↑↑↑<br>
+  <%= link_to '更新', about_path, class: "btn btn-default" %>
 </p>

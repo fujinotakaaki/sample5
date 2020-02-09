@@ -13,9 +13,27 @@
   <%= render 'layouts/header' %>
   <div class="container">
     <!--main-->
+    <!--flashコメントの表示-->
+    <% flash.each do |message_type, message| %>
+    <!--message_typeは本来シンボルだが、処理されると、文字列になる（元々文字列だし、多少はね、）-->
+    <!--<div class="alert alert-<%= message_type %>"><%= message %></div>-->
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    <!--各ページの表示-->
     <%= yield %>
     <!--footer-->
     <%= render %q(layouts/footer) %>
+    <!--実行環境は開発環境かどうかで表示するか決める-->
+    <!--（デフォルトの）環境は３つ-->
+    <!--テスト環境 (test)、開発環境 (development)、そして本番環境 (production)-->
+    <%= debug(params) if Rails.env.development? %>
+    <!--表示内容の例(begin)-->
+    <!----- !ruby/object:ActionController::Parameters-->
+    <!--parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess-->
+    <!--controller: static_pages <= このページを呼ぶ際に実行されたコントローラー名-->
+    <!--action: home <= このページを呼ぶ際に実行されたアクション名-->
+    <!--permitted: false <= なんでしょうね-->
+    <!--表示内容の例(end)-->
   </div>
 </body>
 </html>
